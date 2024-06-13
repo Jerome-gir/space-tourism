@@ -1,4 +1,5 @@
 import Background from "./components/Background"
+import MainContentHomepage from "./components/MainContentHomepage"
 import Navigation from "./components/Navigation"
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Background />
       <Navigation />
+      <MainContentHomepage />
     </main>
   )
 }
