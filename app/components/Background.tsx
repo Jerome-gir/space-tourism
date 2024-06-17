@@ -15,6 +15,12 @@ export default function Background() {
         alt="homepage background"
         fill
       ></Image>
+      <Image
+        className="block sm:hidden -z-10"
+        src="/assets/home/background-home-mobile.jpg"
+        alt="homepage background"
+        fill
+      ></Image>
     </>
   )
 }
