@@ -39,17 +39,15 @@ export default function Navigation() {
           alt="logo"
           width="48"
           height="48"
-        ></Image>
+        />
         <Image
           className="hidden lg:block"
           src="/assets/shared/line.svg"
           alt="line"
           width="560"
           height="2"
-        ></Image>
-        {sideMenuOpen ? (
-          "hidden"
-        ) : (
+        />
+        {!sideMenuOpen && (
           <div className="sm:hidden ml-[330px] mt-3 cursor-pointer">
             <Image
               src="/assets/shared/icon-hamburger.svg"
@@ -57,13 +55,16 @@ export default function Navigation() {
               width="24"
               height="21"
               onClick={() => setSideMenuOpen(true)}
-            ></Image>
+            />
           </div>
         )}
         <div
           className={clsx(
-            "fixed h-full w-4/6 sm:hidden bg-white/50 top-0 right-0 translate-x-full duration-700",
-            sideMenuOpen && "-translate-x-0 duration-1000"
+            "fixed h-full w-4/6 sm:hidden bg-white/50 top-0 right-0 transform transition-transform duration-700",
+            {
+              "translate-x-full": !sideMenuOpen,
+              "translate-x-0": sideMenuOpen,
+            }
           )}
         >
           <div className="flex flex-col text-white font-barlow_condensed text-xl uppercase absolute top-40 h-screen left-3 p-8 gap-8 z-50">
@@ -74,7 +75,7 @@ export default function Navigation() {
               width="20"
               height="21"
               onClick={() => setSideMenuOpen(false)}
-            ></Image>
+            />
             {links.map((link, index) => (
               <Link key={index} href={link.href}>
                 <span className="font-bold mr-3">
@@ -91,7 +92,7 @@ export default function Navigation() {
           <Link key={index} href={link.href}>
             <span
               className={`font-bold mr-3 ${
-                index === 0 ? " hidden lg:inline-block" : ""
+                index === 0 ? "hidden lg:inline-block" : ""
               }`}
             >
               {link.numb.toString().padStart(2, "0")}
