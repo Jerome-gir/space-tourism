@@ -32,7 +32,7 @@ export default function Navigation() {
   ]
 
   return (
-    <div className="flex justify-between lg:items-end w-full h-[136px]">
+    <div className="flex justify-between lg:items-end ">
       <div className="flex justify-between lg:w-1/2 h-12 mb-6 mt-6 lg:mt-16 pl-6 lg:pl-16">
         <Image
           src="/assets/shared/logo.svg"
@@ -60,7 +60,7 @@ export default function Navigation() {
         )}
         <div
           className={clsx(
-            "fixed h-full w-4/6 sm:hidden bg-white/50 top-0 right-0 transform transition-transform duration-700",
+            "fixed h-full w-4/6 sm:hidden bg-[#0B0D17] bg-opacity-90 top-0 right-0 transform transition-transform duration-700 z-50 opacity-90",
             {
               "translate-x-full": !sideMenuOpen,
               "translate-x-0": sideMenuOpen,

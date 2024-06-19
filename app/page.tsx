@@ -4,7 +4,7 @@ import Navigation from "./components/Navigation"
 
 export default function Home() {
   return (
-    <main>
+    <main className="h-screen w-screen">
       <Background />
       <Navigation />
       <MainContentHomepage />

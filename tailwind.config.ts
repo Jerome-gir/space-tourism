@@ -22,6 +22,10 @@ const config: Config = {
         bellefair: ["var(--font-bellefair)"],
         barlow_condensed: ["var(--font-barlow-condensed)"],
       },
+      scale: {
+        "170": "1.70",
+        "250": "2.5",
+      },
     },
   },
   plugins: [],
