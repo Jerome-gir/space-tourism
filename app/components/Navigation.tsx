@@ -4,6 +4,7 @@ import clsx from "clsx"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [sideMenuOpen, setSideMenuOpen] = useState<boolean>(false)
@@ -30,6 +31,17 @@ export default function Navigation() {
       name: "Technology",
     },
   ]
+
+  type LinkProps = {
+    href: string
+    numb: number
+    name: string
+  }
+
+  function GetActiveLink({ link }: { link: LinkProps }) {
+    const pathname = usePathname()
+    return pathname === link.href ? "border-b-2 border-white-500" : ""
+  }
 
   return (
     <div className="flex justify-between lg:items-end ">
@@ -80,7 +92,11 @@ export default function Navigation() {
               onClick={() => setSideMenuOpen(false)}
             />
             {links.map((link, index) => (
-              <Link key={index} href={link.href}>
+              <Link
+                key={index}
+                href={link.href}
+                className={`${GetActiveLink({ link })}`}
+              >
                 <span className="font-bold mr-3">
                   {link.numb.toString().padStart(2, "0")}
                 </span>{" "}
@@ -92,7 +108,11 @@ export default function Navigation() {
       </div>
       <div className="hidden sm:flex items-center justify-around font-barlow_condensed uppercase text-white w-5/6 lg:w-3/5 h-24 bg-white bg-opacity-15 py-6">
         {links.map((link, index) => (
-          <Link key={index} href={link.href}>
+          <Link
+            key={index}
+            href={link.href}
+            className={`${GetActiveLink({ link })}`}
+          >
             <span
               className={`font-bold mr-3 ${
                 index === 0 ? "hidden lg:inline-block" : ""

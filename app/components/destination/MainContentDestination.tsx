@@ -1,47 +1,67 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-export default function MainContentDestination() {
-  const Links = [
-    {
-      link: "/destination",
-      name: "moon",
-    },
-    {
-      link: "/mars",
-      name: "mars",
-    },
-    {
-      link: "/europa",
-      name: "europa",
-    },
-    {
-      link: "/titan",
-      name: "titan",
-    },
-  ]
+type LinkProps = {
+  link: string
+  name: string
+}
+
+type MainContentDestinationProps = {
+  imageSrc: string
+  imageAlt: string
+  title: string
+  description: string
+  distance: string
+  travelTime: string
+  links: LinkProps[]
+}
+
+function GetActiveLink({ link }: { link: LinkProps }) {
+  const pathname = usePathname()
+  return pathname === link.link ? "border-b-2 border-white-500" : ""
+}
+
+export default function MainContentDestination({
+  imageSrc,
+  imageAlt,
+  title,
+  description,
+  distance,
+  travelTime,
+  links,
+}: MainContentDestinationProps) {
+  if (!links) {
+    return <div>Error: Links are undefined</div>
+  }
 
   return (
     <div className="flex justify-center items-center p-6">
-      <div className="flex flex-col w-[327px] h-[744px]">
-        <h2 className="font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest">
-          <span className="font-bold mr-6 tracking-widest">01</span> pick your
-          destination
+      <div className="flex flex-col w-[327px] h-[744px] sm:mt-10">
+        <h2 className="font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest lg:text-2xl">
+          <span className="font-bold mr-6 tracking-widest lg:text-3xl">01</span>{" "}
+          pick your destination
         </h2>
         <div className="w-[327px] h-[701px] flex flex-col justify-start items-center mt-6">
           <Image
-            className=""
-            src="/assets/destination/image-moon.webp"
-            alt="moon"
+            className="sm:w-96"
+            src={imageSrc}
+            alt={imageAlt}
             width={150}
             height={150}
           />
           <nav className="mt-8">
             <ul className="flex justify-around items-center">
-              {Links.map((link, index) => (
+              {links.map((link, index) => (
                 <li key={index} className="mx-5">
                   <Link
-                    className="text-white uppercase text-lg font-thin tracking-widest font-barlow_condensed cursor-pointer"
+                    className={`text-white uppercase text-lg font-thin tracking-widest font-barlow_condensed cursor-pointer relative transition duration-200  border-transparent hover:scale-105 hover:text-white hover:border-white ${GetActiveLink(
+                      {
+                        link,
+                      }
+                    )} after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-white after:opacity-0 after:transition-opacity after:duration-200 after:hover:opacity-50`}
                     href={link.link}
                   >
                     {link.name}
@@ -51,16 +71,13 @@ export default function MainContentDestination() {
             </ul>
           </nav>
           <h3 className="uppercase text-white mt-6 font-bellefair text-7xl">
-            moon
+            {title}
           </h3>
           <p className="text-light-blue text-center mt-4 mb-6 font-barlow_condensed text-xl font-extralight">
-            See our planet as you’ve never seen it before. A perfect relaxing
-            trip away to help regain perspective and come back refreshed. While
-            you’re there, take in some history by visiting the Luna 2 and Apollo
-            11 landing sites.
+            {description}
           </p>
           <Image
-            className=""
+            className="sm:border-2"
             src="/assets/shared/line.svg"
             alt="line"
             width="560"
@@ -70,13 +87,13 @@ export default function MainContentDestination() {
             avg. distance
           </h4>
           <span className="text-white font-bellefair text-3xl uppercase mb-6">
-            384,400 km
+            {distance}
           </span>
           <span className="text-white uppercase text-light-blue text-sm tracking-widest font-thin mb-3">
             est. travel time
           </span>
           <span className="text-white uppercase text-3xl font-bellefair">
-            3 days
+            {travelTime}
           </span>
         </div>
       </div>
