@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Bellefair, Barlow_Condensed } from "next/font/google"
 import "./globals.css"
+import Navigation from "./components/Navigation"
 
 const bellefair = Bellefair({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bellefair.variable} ${barlow_condensed.variable}`}>
+        <Navigation />
         {children}
       </body>
     </html>

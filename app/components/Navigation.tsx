@@ -34,12 +34,15 @@ export default function Navigation() {
   return (
     <div className="flex justify-between lg:items-end ">
       <div className="flex justify-between lg:w-1/2 h-12 mb-6 mt-6 lg:mt-16 pl-6 lg:pl-16">
-        <Image
-          src="/assets/shared/logo.svg"
-          alt="logo"
-          width="48"
-          height="48"
-        />
+        <Link href="/">
+          <Image
+            className="cursor-pointer"
+            src="/assets/shared/logo.svg"
+            alt="logo"
+            width="48"
+            height="48"
+          />
+        </Link>
         <Image
           className="hidden lg:block"
           src="/assets/shared/line.svg"
