@@ -41,7 +41,9 @@ export default function MainContentDestination({
     <div className="flex justify-center items-center p-6">
       <div className="flex flex-col w-[327px] h-[744px] sm:mt-10">
         <h2 className="font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest lg:text-2xl">
-          <span className="font-bold mr-6 tracking-widest lg:text-3xl">01</span>{" "}
+          <span className="font-bold mr-6 tracking-widest lg:text-3xl opacity-50">
+            01
+          </span>{" "}
           pick your destination
         </h2>
         <div className="w-[327px] h-[701px] flex flex-col justify-start items-center mt-6">

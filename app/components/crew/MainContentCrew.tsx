@@ -35,12 +35,14 @@ export default function MainContentCrew({
   return (
     <div className="flex flex-col items-center p-4">
       <h1 className="font-barlow_condensed uppercase text-center text-white  tracking-widest mb-16 lg:mb-48 sm:mb-0 sm:text-xl sm:p-6 lg:px-44 sm:text-left lg:text-3xl w-screen">
-        <span className="font-bold mr-6 tracking-widest lg:text-3xl">02</span>{" "}
+        <span className="font-bold mr-6 tracking-widest lg:text-3xl opacity-50">
+          02
+        </span>{" "}
         meet your crew
       </h1>
       <div className="lg:flex lg:w-5/6">
         <div className="w-[327px] sm:w-screen sm:mt-10">
-          <h2 className="font-bellefair text-lg lg:text-4xl text-center lg:text-start text-white uppercase font-thin sm:text-2xl sm:mb-4 ">
+          <h2 className="font-bellefair text-lg lg:text-4xl text-center lg:text-start text-white opacity-50 uppercase font-thin sm:text-2xl sm:mb-4 ">
             {title}
           </h2>
           <h3 className="font-bellefair text-center text-2xl lg:text-6xl sm:text-5xl mt-2 mb-6 text-white uppercase lg:text-start">
