@@ -25,6 +25,7 @@ export default function Technology() {
       <BackgroundTechnology />
       <MainContentTechnology
         imageSrc="/assets/technology/image-launch-vehicle-portrait.jpg"
+        imageSrcTablet="/assets/technology/image-launch-vehicle-landscape.jpg"
         imageAlt="launch vehicle"
         title="the terminology..."
         name="launch vehicle"

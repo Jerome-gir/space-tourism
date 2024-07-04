@@ -12,6 +12,7 @@ type LinkProps = {
 
 type MainContentTechnologyProps = {
   imageSrc: string
+  imageSrcTablet: string
   imageAlt: string
   title: string
   name: string
@@ -26,6 +27,7 @@ function GetActiveLink({ link }: { link: LinkProps }) {
 
 export default function MainContentTechnology({
   imageSrc,
+  imageSrcTablet,
   imageAlt,
   title,
   name,
@@ -40,13 +42,24 @@ export default function MainContentTechnology({
         </span>{" "}
         space launch 101
       </h1>
-      <Image
-        className=" sm:w-[433px] lg:w-[1000px]"
-        src={imageSrc}
-        alt={imageAlt}
-        width={400}
-        height={340}
-      />
+      <div className="">
+        <Image
+          className="sm:hidden sm:w-[433px] lg:w-[1000px]"
+          src={imageSrc}
+          alt={imageAlt}
+          width={400}
+          height={340}
+        />
+      </div>
+      <div className="">
+        <Image
+          className="hidden sm:block sm:w-[800px] lg:w-[1000px] sm:mt-16"
+          src={imageSrcTablet}
+          alt={imageAlt}
+          width={400}
+          height={340}
+        />
+      </div>
       <div className="lg:flex lg:w-5/6">
         <div className="w-[350px] sm:w-screen sm:mt-10">
           <div className="mt-8 mb-10">
@@ -56,7 +69,7 @@ export default function MainContentTechnology({
                   <li key={index} className="mx-2 lg:mx-6">
                     <Link className="text-white" href={link.link}>
                       <Image
-                        className="lg:w-[15px]"
+                        className="sm:size-14 lg:w-[15px]"
                         src={GetActiveLink({ link })}
                         alt={link.link}
                         width={40}

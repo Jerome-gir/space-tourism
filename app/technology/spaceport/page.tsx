@@ -25,6 +25,7 @@ export default function Spaceport() {
       <BackgroundTechnology />
       <MainContentTechnology
         imageSrc="/assets/technology/image-spaceport-portrait.jpg"
+        imageSrcTablet="/assets/technology/image-spaceport-landscape.jpg"
         imageAlt="spaceport"
         title="the terminology..."
         name="spaceport"

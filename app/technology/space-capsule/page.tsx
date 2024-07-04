@@ -25,6 +25,7 @@ export default function SpaceCapsule() {
       <BackgroundTechnology />
       <MainContentTechnology
         imageSrc="/assets/technology/image-space-capsule-portrait.jpg"
+        imageSrcTablet="/assets/technology/image-space-capsule-landscape.jpg"
         imageAlt="space capsule"
         title="the terminology..."
         name="space capsule"
