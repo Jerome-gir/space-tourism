@@ -1,4 +1,3 @@
-// crew/moon.tsx
 import BackgroundCrew from "../components/crew/BackgroundCrew"
 import MainContentcrew from "../components/crew/MainContentCrew"
 

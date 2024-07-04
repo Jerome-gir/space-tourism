@@ -16,10 +16,12 @@ export default function BackgroundCrew() {
         fill
       ></Image>
       <Image
-        className="hidden lg:block -z-10"
+        className="hidden lg:block object-cover -z-10"
         src="/assets/crew/background-crew-desktop.jpg"
         alt="homepage background"
+        quality={100}
         fill
+        sizes="100vw"
       ></Image>
     </>
   )
