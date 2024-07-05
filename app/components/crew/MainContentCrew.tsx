@@ -51,7 +51,7 @@ export default function MainContentCrew({
           <p className="text-light-blue font-extralight text-center lg:text-start lg:pr-96 lg:px-0 sm:px-48 sm:text-lg">
             {description}
           </p>
-          <nav className="mt-16 lg:mt-60">
+          <nav className="mt-16 lg:mt-32">
             <ul className="flex items-center justify-center lg:justify-start">
               {links.map((link, index) => (
                 <li key={index} className="mx-2 lg:mx-6">
