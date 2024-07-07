@@ -38,63 +38,76 @@ export default function MainContentDestination({
   }
 
   return (
-    <div className="flex justify-center items-center p-6">
-      <div className="flex flex-col w-[327px] h-[744px] sm:mt-10">
-        <h2 className="font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest lg:text-2xl">
+    <div className="flex lg:flex-col lg:items-start justify-center items-center p-6">
+      <h2 className="hidden lg:block font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest lg:text-2xl lg:ml-72">
+        <span className="font-bold mr-6 tracking-widest lg:text-3xl">01</span>{" "}
+        pick your destination
+      </h2>
+      <div className="flex flex-col lg:flex-row lg:items-start lg:ml-72 w-[327px] lg:w-full h-[744px] sm:mt-10 lg:mt-0 lg:gap-8">
+        <h2 className="lg:hidden font-barlow_condensed uppercase text-center text-white mb-6 tracking-widest sm:-ml-96 lg:text-2xl lg:ml-72">
           <span className="font-bold mr-6 tracking-widest lg:text-3xl">01</span>{" "}
           pick your destination
         </h2>
-        <div className="w-[327px] h-[701px] flex flex-col justify-start items-center mt-6">
+        <div className="w-[327px] lg:w-auto h-[701px] flex flex-col justify-start items-center mt-6 lg:mt-0 lg:flex-row lg:gap-8">
           <Image
-            className="sm:w-96"
+            className="sm:w-96 lg:w-[480px] lg:order-first lg:mr-16"
             src={imageSrc}
             alt={imageAlt}
             width={150}
             height={150}
           />
-          <nav className="mt-8">
-            <ul className="flex justify-around items-center">
-              {links.map((link, index) => (
-                <li key={index} className="mx-5">
-                  <Link
-                    className={`text-white uppercase text-lg font-thin tracking-widest font-barlow_condensed cursor-pointer relative transition duration-200  border-transparent hover:scale-105 hover:text-white hover:border-white ${GetActiveLink(
-                      {
-                        link,
-                      }
-                    )} after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-white after:opacity-0 after:transition-opacity after:duration-200 after:hover:opacity-50`}
-                    href={link.link}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <h3 className="uppercase text-white mt-6 font-bellefair text-7xl">
-            {title}
-          </h3>
-          <p className="text-light-blue text-center mt-4 mb-6 font-barlow_condensed text-xl font-extralight">
-            {description}
-          </p>
-          <Image
-            className="sm:border-2"
-            src="/assets/shared/line.svg"
-            alt="line"
-            width="560"
-            height="2"
-          />
-          <h4 className="text-light-blue uppercase text-sm font-barlow_condensed tracking-widest mt-6 mb-3">
-            avg. distance
-          </h4>
-          <span className="text-white font-bellefair text-3xl uppercase mb-6">
-            {distance}
-          </span>
-          <span className="text-white uppercase text-light-blue text-sm tracking-widest font-thin mb-3">
-            est. travel time
-          </span>
-          <span className="text-white uppercase text-3xl font-bellefair">
-            {travelTime}
-          </span>
+          <div className="lg:w-[400px]">
+            <nav className="mt-8 lg:mt-0 lg:mb-10">
+              <ul className="flex justify-around items-center lg:justify-start lg:gap-4">
+                {links.map((link, index) => (
+                  <li key={index} className="mx-5 lg:mx-0">
+                    <Link
+                      className={`text-white uppercase text-lg font-thin tracking-widest font-barlow_condensed cursor-pointer relative transition duration-200  border-transparent hover:scale-105 hover:text-white hover:border-white ${GetActiveLink(
+                        {
+                          link,
+                        }
+                      )} after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-white after:opacity-0 after:transition-opacity after:duration-200 after:hover:opacity-50`}
+                      href={link.link}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <h3 className="uppercase text-white text-center lg:text-left mt-6 font-bellefair text-7xl lg:text-8xl">
+              {title}
+            </h3>
+            <p className="text-light-blue text-center lg:text-left mt-4 mb-6 font-barlow_condensed text-xl font-extralight">
+              {description}
+            </p>
+            <Image
+              className="sm:border-2"
+              src="/assets/shared/line.svg"
+              alt="line"
+              width="560"
+              height="2"
+            />
+
+            <div className="flex flex-col sm:flex-row  sm:w-[600px] sm:px-4 items-center">
+              <div className="flex flex-col items-center sm:items-start sm:mr-10">
+                <h4 className="text-light-blue uppercase text-sm font-barlow_condensed tracking-widest mt-6 mb-3">
+                  avg. distance
+                </h4>
+                <span className="text-white font-bellefair text-3xl uppercase mb-6 lg:text-[28px]">
+                  {distance}
+                </span>
+              </div>
+              <div className="flex flex-col items-center sm:items-start sm:ml-10">
+                <span className="text-ligth-blue uppercase text-light-blue text-sm tracking-widest font-thin mb-3">
+                  est. travel time
+                </span>
+                <span className="text-white uppercase text-3xl font-bellefair">
+                  {travelTime}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
